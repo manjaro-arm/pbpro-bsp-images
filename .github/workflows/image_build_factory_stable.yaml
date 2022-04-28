@@ -1,4 +1,4 @@
-name: image_build_all
+name: image_build_factory_stable
 on:
   workflow_dispatch:
 
