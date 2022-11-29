@@ -29,6 +29,7 @@ jobs:
           edition: ${{ matrix.edition }}
           branch: ${{ matrix.branch }}
           version: ${{ steps.time.outputs.time }}
+          imgtype: ${{ matrix.imgtype }}
           #gpg-key: ${{ secrets.CI_GPG_SECRET }}
           #gpg-passphrase: ${{ secrets.CI_GPG_PASSPHRASE }}
       -
@@ -38,9 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.time.outputs.time }}
-          name: Dev ${{ steps.time.outputs.time }}
+          name: Factory Image ${{ steps.time.outputs.time }}
           draft: false
-          prerelease: true
+          prerelease: false
           files: |
             ${{ env.FILE_PATH }}
             ${{ env.FILE_SHA1 }}
